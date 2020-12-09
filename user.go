@@ -10,7 +10,7 @@ import (
 	"github.com/nizonglonggit/usercenter/internal/config"
 	"github.com/nizonglonggit/usercenter/internal/server"
 	"github.com/nizonglonggit/usercenter/internal/svc"
-	"github.com/nizonglonggit/usercenter/usercenter"
+	"github.com/nizonglonggit/usercenter/user"
 
 	"github.com/tal-tech/go-zero/core/conf"
 	"github.com/tal-tech/go-zero/zrpc"
@@ -28,7 +28,7 @@ func main() {
 	srv := server.NewUserCenterServerServer(ctx)
 
 	s := zrpc.MustNewServer(c.RpcServerConf, func(grpcServer *grpc.Server) {
-		usercenter.RegisterUserCenterServerServer(grpcServer, srv)
+		user.RegisterUserCenterServerServer(grpcServer, srv)
 	})
 	defer s.Stop()
 

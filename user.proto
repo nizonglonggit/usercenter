@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package usercenter;
+package user;
 
 // The greeting service definition.
 service UserCenterServer {

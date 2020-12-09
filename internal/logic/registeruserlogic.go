@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/nizonglonggit/usercenter/internal/svc"
-	"github.com/nizonglonggit/usercenter/usercenter"
+	"github.com/nizonglonggit/usercenter/user"
 
 	"github.com/tal-tech/go-zero/core/logx"
 )
@@ -23,8 +23,8 @@ func NewRegisterUserLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Regi
 	}
 }
 
-func (l *RegisterUserLogic) RegisterUser(in *usercenter.RegisterUserReq) (*usercenter.BaseResp, error) {
+func (l *RegisterUserLogic) RegisterUser(in *user.RegisterUserReq) (*user.BaseResp, error) {
 	// todo: add your logic here and delete this line
 
-	return &usercenter.BaseResp{}, nil
+	return &user.BaseResp{}, nil
 }

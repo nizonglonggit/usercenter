@@ -8,16 +8,16 @@ package usercenterserver
 import (
 	"context"
 
-	"github.com/nizonglonggit/usercenter/usercenter"
+	"github.com/nizonglonggit/usercenter/user"
 
 	"github.com/tal-tech/go-zero/zrpc"
 )
 
 type (
-	LoginResp       = usercenter.LoginResp
-	BaseResp        = usercenter.BaseResp
-	RegisterUserReq = usercenter.RegisterUserReq
-	LoginReq        = usercenter.LoginReq
+	BaseResp        = user.BaseResp
+	RegisterUserReq = user.RegisterUserReq
+	LoginReq        = user.LoginReq
+	LoginResp       = user.LoginResp
 
 	UserCenterServer interface {
 		RegisterUser(ctx context.Context, in *RegisterUserReq) (*BaseResp, error)
@@ -36,11 +36,11 @@ func NewUserCenterServer(cli zrpc.Client) UserCenterServer {
 }
 
 func (m *defaultUserCenterServer) RegisterUser(ctx context.Context, in *RegisterUserReq) (*BaseResp, error) {
-	client := usercenter.NewUserCenterServerClient(m.cli.Conn())
+	client := user.NewUserCenterServerClient(m.cli.Conn())
 	return client.RegisterUser(ctx, in)
 }
 
 func (m *defaultUserCenterServer) Login(ctx context.Context, in *LoginReq) (*LoginResp, error) {
-	client := usercenter.NewUserCenterServerClient(m.cli.Conn())
+	client := user.NewUserCenterServerClient(m.cli.Conn())
 	return client.Login(ctx, in)
 }

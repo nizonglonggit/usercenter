@@ -8,7 +8,7 @@ import (
 
 	"github.com/nizonglonggit/usercenter/internal/logic"
 	"github.com/nizonglonggit/usercenter/internal/svc"
-	"github.com/nizonglonggit/usercenter/usercenter"
+	"github.com/nizonglonggit/usercenter/user"
 )
 
 type UserCenterServerServer struct {
@@ -21,12 +21,12 @@ func NewUserCenterServerServer(svcCtx *svc.ServiceContext) *UserCenterServerServ
 	}
 }
 
-func (s *UserCenterServerServer) RegisterUser(ctx context.Context, in *usercenter.RegisterUserReq) (*usercenter.BaseResp, error) {
+func (s *UserCenterServerServer) RegisterUser(ctx context.Context, in *user.RegisterUserReq) (*user.BaseResp, error) {
 	l := logic.NewRegisterUserLogic(ctx, s.svcCtx)
 	return l.RegisterUser(in)
 }
 
-func (s *UserCenterServerServer) Login(ctx context.Context, in *usercenter.LoginReq) (*usercenter.LoginResp, error) {
+func (s *UserCenterServerServer) Login(ctx context.Context, in *user.LoginReq) (*user.LoginResp, error) {
 	l := logic.NewLoginLogic(ctx, s.svcCtx)
 	return l.Login(in)
 }

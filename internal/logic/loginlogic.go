@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/nizonglonggit/usercenter/internal/svc"
-	"github.com/nizonglonggit/usercenter/usercenter"
+	"github.com/nizonglonggit/usercenter/user"
 
 	"github.com/tal-tech/go-zero/core/logx"
 )
@@ -23,8 +23,8 @@ func NewLoginLogic(ctx context.Context, svcCtx *svc.ServiceContext) *LoginLogic 
 	}
 }
 
-func (l *LoginLogic) Login(in *usercenter.LoginReq) (*usercenter.LoginResp, error) {
+func (l *LoginLogic) Login(in *user.LoginReq) (*user.LoginResp, error) {
 	// todo: add your logic here and delete this line
 
-	return &usercenter.LoginResp{}, nil
+	return &user.LoginResp{}, nil
 }
