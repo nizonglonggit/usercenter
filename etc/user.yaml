@@ -2,5 +2,9 @@ Name: user.rpc
 ListenOn: 127.0.0.1:8080
 Etcd:
   Hosts:
-  - 127.0.0.1:2379
-  Key: user.rpc
+    - 127.0.0.1:2379
+  Key: add.rpc
+DataSource: root:@tcp(81.68.107.248:3306)/zero-test
+Table: user_user
+Cache:
+  - Host: 81.68.107.248:6378
