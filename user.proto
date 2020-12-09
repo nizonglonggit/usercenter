@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package usercenter;
+
+// The greeting service definition.
+service UserCenterServer {
+    rpc RegisterUser (RegisterUserReq) returns (BaseResp); // 注册
+    rpc Login (LoginReq) returns (LoginResp); // 登录
+}
+
+// 公共返回信息
+message BaseResp {
+  int32  code = 1; // 错误码
+  string msg = 2;  // 错误信息
+}
+
+// 注册请求体
+message RegisterUserReq {
+	string  nick_name = 1;
+    string  pass_word = 2;
+    string  email = 3;
+    string  head_portrait_url = 4;
+    int32   gender = 5;
+}
+
+// 登录请求体
+message LoginReq {
+    string  account = 1; // 前端判定登录的账号是邮箱或者用户名
+    string  pass_word = 2;
+    int32   login_type = 3; // 登录方式
+}
+
+// 登录返回信息
+message LoginResp {
+  int32  code = 1; // 错误码
+  string msg = 2;  // 错误信息
+  string token = 3;
+}

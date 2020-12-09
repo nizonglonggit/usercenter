@@ -1,3 +1,3 @@
 module github.com/nizonglonggit/usercenter
 
-go 1.15
+go 1.13
